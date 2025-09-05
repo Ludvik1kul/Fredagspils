@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Er det fredag?</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #0077cc;
+      color: white;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+    img {
+      margin-top: 10px;
+      max-width: 300px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="checkFriday()">Er det fredag?</button>
+  <div id="result"></div>
+
+  <script>
+    function checkFriday() {
+      const today = new Date();
+      const day = today.getDay(); // 0 = Sunday, 5 = Friday
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "";
+
+      const text = document.createElement("div");
+      const img = document.createElement("img");
+
+      if (day === 5) {
+        text.textContent = "JA, det er fredag! 🎉<br> Hectors 16:15"; //new line
+
+        img.src = "roses.jpg"; // replace with your friday image
+        img.alt = "Friday image";
+      } else {
+        text.textContent = "NEI, det er ikke fredag. 😢<br> Ryan 16:15"; //new line
+        img.src = "triste.gif"; // replace with your not-friday image
+        img.alt = "Ryan noo:(";
+      }
+
+      resultDiv.appendChild(text);
+      resultDiv.appendChild(img);
+    }
+  </script>
+</body>
+</html>
